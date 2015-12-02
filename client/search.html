@@ -1,19 +1,15 @@
 <template name="search">
-
-    <h1>MTG Quick Find</h1>
-    <img src="{{imageURL}}">
-
-    {{> EasySearch.Input index=CardLibraryIndex}}
-
-    <ul>
-      {{#EasySearch.Each index=CardLibraryIndex}}
-        <li class="card" id="{{multiverseid}}">{{name}}</li>
-      {{/EasySearch.Each}}
-    </ul>
-
-    {{> EasySearch.LoadMore index=CardLibraryIndex}}
-
-    {{#EasySearch.IfNoResults index=CardLibraryIndex}}
-      <div class="no-results">No results found!</div>
-    {{/EasySearch.IfNoResults}}
+  <input class="searchinput" type="text">
+  <br>
+  {{#each searchResponse}}
+    <section class="card">
+      {{name}}<br>
+      {{text}}
+      {{#each edition}}
+        <section class="edition">
+          {{image_url}}
+        </section>
+      {{/each}}
+    </section>
+  {{/each}}
 </template>

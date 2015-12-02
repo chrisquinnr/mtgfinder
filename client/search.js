@@ -1,17 +1,24 @@
+var searchInput = new ReactiveVar;
+
 Template.search.helpers({
-  CardLibraryIndex: () => CardLibraryIndex, // instanceof EasySearch.Index
+  searchResponse:function(){
+    var result = ReactiveMethod.call('cardFetcher', searchInput.get(), false);
+    console.log(result);
 
-  imageURL: function(){
-    return Session.get("imageURL");
+    if(result && result.statusCode === 200){
+      return result.data;
+    }
   }
-
-
 });
 
 Template.search.events({
-  'click .card':function(){
-    console.log(this);
-    var src = 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' + this.multiverseid + '&type=card';
-    Session.set('imageURL', src);
+  'keyup .searchinput':function(){
+    var text = $('.searchinput').val();
+    if(text.length > 3){
+      searchInput.set(text)
+    } else {
+      searchInput.set(false)
+    }
+
   }
 });
