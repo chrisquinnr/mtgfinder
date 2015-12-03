@@ -1,4 +1,8 @@
 <template name="search">
+  <button class="advancedToggle">Advanced</button>
+  {{#if advanced}}
+    {{> advancedOptions}}
+  {{/if}}
   <input class="searchinput" type="text">
   <br>
   {{#each searchResponse}}

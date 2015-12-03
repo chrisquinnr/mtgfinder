@@ -1,4 +1,5 @@
 var searchInput = new ReactiveVar;
+var advanced = new ReactiveVar;
 
 Template.search.helpers({
   searchResponse:function(){
@@ -8,6 +9,9 @@ Template.search.helpers({
     if(result && result.statusCode === 200){
       return result.data;
     }
+  },
+  advanced:function(){
+    return advanced.get();
   }
 });
 
@@ -19,6 +23,13 @@ Template.search.events({
     } else {
       searchInput.set(false)
     }
-
+  },
+  'click .advancedToggle':function(){
+    if(advanced.get() === true){
+      advanced.set(false)
+    } else {
+      advanced.set(true);
+    }
   }
+
 });

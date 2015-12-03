@@ -8,6 +8,11 @@ Meteor.methods({
         name: searchText
       }
     });
+  },
+  typesGetter:function(){
+    return HTTP.call("GET", "https://api.deckbrew.com/mtg/types");
+  },
+  coloursGetter:function(){
+    return HTTP.call("GET", "https://api.deckbrew.com/mtg/colors");
   }
-
 });
