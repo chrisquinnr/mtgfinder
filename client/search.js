@@ -1,9 +1,9 @@
-var searchInput = new ReactiveVar;
-var advanced = new ReactiveVar;
-
+searchInput = new ReactiveVar;
+advanced = new ReactiveVar;
+options = new ReactiveVar({});
 Template.search.helpers({
   searchResponse:function(){
-    var result = ReactiveMethod.call('cardFetcher', searchInput.get(), false);
+    var result = ReactiveMethod.call('cardFetcher', searchInput.get(), options.get());
     console.log(result);
 
     if(result && result.statusCode === 200){

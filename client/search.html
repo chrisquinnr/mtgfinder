@@ -1,5 +1,5 @@
 <template name="search">
-  <button class="advancedToggle">Advanced</button>
+  <button class="advancedToggle">Show Advanced</button>
   {{#if advanced}}
     {{> advancedOptions}}
   {{/if}}
@@ -9,9 +9,9 @@
     <section class="card">
       {{name}}<br>
       {{text}}
-      {{#each edition}}
+      {{#each editions}}
         <section class="edition">
-          {{image_url}}
+          <img src="{{image_url}}">
         </section>
       {{/each}}
     </section>

@@ -1,15 +1,29 @@
 <template name="advancedOptions">
+  {{>typeOptions data=types}}
+  {{>colourOptions data=colors}}
+</template>
 
-  Types
+<template name="typeOptions">
+  <h2>Types</h2>
+  <br>
+  <button class="clearType">Clear Type</button>
+  <br>
   <ul>
-    {{#each types}}
-      <li>{{this}}</li>
+    {{#each data}}
+      <li class="typeOption" id="{{this}}">{{this}}</li>
     {{/each}}
   </ul>
-  Colours
+
+</template>
+
+<template name="colourOptions">
+  <h2>Colours</h2>
+  <br>
+  <button class="clearColor">Clear Color</button>
+  <br>
   <ul>
-    {{#each colours}}
-      <li>{{this}}</li>
+    {{#each data}}
+      <li class="colourOption" id="{{this}}">{{this}}</li>
     {{/each}}
   </ul>
 
