@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 http
 simple:reactive-method
 reactive-var
+twbs:bootstrap

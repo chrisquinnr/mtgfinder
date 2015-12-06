@@ -1,1 +1,2 @@
-CardLibrary = new Mongo.Collection('cardlibrary');
+Colours = new Mongo.Collection('colours');
+Types = new Mongo.Collection('types');
