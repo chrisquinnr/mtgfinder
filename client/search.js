@@ -61,3 +61,15 @@ Template.search.events({
   }
 
 });
+
+UI.registerHelper('getFirst', function(){
+  console.log(this.editions[0].multiverse_id);
+  return this.editions[0].multiverse_id;
+});
+
+UI.registerHelper('active', function(multiverse_id, first){
+  console.log(multiverse_id + ' ' + first);
+  if(multiverse_id === first){
+    return 'active';
+  }
+});

@@ -7,13 +7,36 @@
   <br>
   {{#each searchResponse}}
     <section class="card">
+      {{>gallery data=editions id=id first=getFirst}}
       {{name}}<br>
       {{text}}
-      {{#each editions}}
-        <section class="edition">
-          <img src="{{image_url}}">
-        </section>
-      {{/each}}
+
+
     </section>
   {{/each}}
+</template>
+
+<template name="gallery">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      {{#each data}}
+        <div class="item {{active multiverse_id ../first}}">
+          <img src="{{image_url}}">
+
+          <div class="carousel-caption">
+            {{flavor}}
+          </div>
+        </div>
+      {{/each}}
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
 </template>
